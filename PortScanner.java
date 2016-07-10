@@ -23,50 +23,6 @@ import java.util.concurrent.Future.*;
 
 public class PortScanner {
     
-    /*  //multithreading takes even more time to scan a particular port due to excess threads.
-    static class MultiThreading implements Runnable
-    {
-        private Thread t ;
-        
-        String ip = "" ;
-        int i = 0;
-        
-        MultiThreading(String str , int port)
-        {
-            this.ip = str ;
-            this.i = port ;
-        }
-        
-        public void run()
-        {
-            
-            try
-            {
-                System.out.println("Running");
-                Long tp = System.currentTimeMillis() ;
-                if( isOpen( ip , i ) )
-                {
-                    Long tm = System.currentTimeMillis() - tp;
-                    System.out.println("port : "+ i + " , time : "+ tp/1000.0 +" Seconds ");
-                }
-            }
-            catch(Exception ex)
-            {
-                System.out.println(ex);
-                //ex.printStackTrace();
-            }
-        }
-        
-        private void start()
-        {
-            System.out.println("Starting thread "+i);
-            t = new Thread( this );    // "this" is must for executing thread. 
-            t.start();
-        }
-    }
-    */
-    
-    //static ArrayList<Integer> openPorts ;
     
     public static void main(String[] args) throws Exception
     {
@@ -119,24 +75,6 @@ public class PortScanner {
         {
             futures.add( portIsOpen(es , ip , i ) ) ;
             
-            /*
-            MultiThreading th = new MultiThreading(ip,i);
-            th.start() ;
-            */
-            /*
-            Long tp = System.currentTimeMillis() ;
-            if( isOpen( ip , i ) )
-            {
-                Long tm = System.currentTimeMillis() - tp;
-                System.out.println("port : "+ i + " , time : "+ tp/1000.0 +" Seconds ");
-            }
-            */
-            /*
-            else
-            {
-                Long tm = System.currentTimeMillis() - tp;
-                System.out.println("port : "+ i + " , time : "+ tp/1000.0 +" Seconds ");
-            }*/
         }
         
         es.shutdown();
