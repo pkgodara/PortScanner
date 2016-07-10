@@ -67,7 +67,7 @@ public class PortScanner {
         System.out.println("\nOpen - Ports are : ");
         
         
-        final ExecutorService es = Executors.newFixedThreadPool(20);   //run 40 threads. 
+        final ExecutorService es = Executors.newFixedThreadPool(20);   //run 20 threads. 
         
         final List<Future<result>> futures = new ArrayList<>() ;
         
